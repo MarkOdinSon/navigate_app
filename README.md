@@ -1,4 +1,4 @@
-My study app.
+My study app to learn backend and frontend.
 Intranet is a Wiki-like platform with restricted access.
 
 It consists of a CMS and the main website. 
@@ -52,9 +52,8 @@ config.navigational_formats = ['*/*', :html, :turbo_stream]
 7. ./run rails generate devise User
 8. ./run rails db:migrate
 9. ./run rails generate devise_invitable:install
-10. 
-11.
-12.
+10. ./run rails generate devise_invitable User
+11. ./run rails db:migrate
 
 -----
 

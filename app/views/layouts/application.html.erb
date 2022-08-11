@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Docker + Rails</title>
+    <title><%= @title_of_page %></title>
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,6 +32,23 @@
       <p class="alert alert-danger"><%= alert %></p>
     <% end %>
     <!--Devise flash massages ending-->
+
+    <% if current_user %>
+      <p class="text-right">
+        Hi, <%= current_user.email %>
+        <br>
+        <%= link_to "Sign Out", destroy_user_session_path, 'data-turbo-method': :delete%>
+        <br>
+        <%= link_to "Invite friends", '/users/invitation/new'%>
+      </p>
+    <% else %>
+    <p>
+      <%= button_to "Log in", new_user_session_path, method: :get, class: "btn btn-outline-warning" %>
+    </p>
+    <p>
+      <%= button_to "Sing up", new_user_registration_path, method: :get, class: "btn btn-outline-primary" %>
+    </p>
+    <% end %>
 
     <main class="max-w-screen-lg mx-auto mb-auto">
       <%= yield %>
