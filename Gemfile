@@ -60,6 +60,14 @@ group :development do
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler"
 
+  # there will be my own gem starting
+
+  gem "devise"
+
+  gem "devise_invitable", "~> 2.0.0"
+
+  # there will be my own gem ending
+
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
 end
