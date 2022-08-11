@@ -6,7 +6,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.0]
 
       # my own fields
 
-
+      t.string :first_name
+      t.string :last_name
+      t.string :company
+      t.string :type_of_user # Admin, Publisher, User
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""

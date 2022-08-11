@@ -26,7 +26,7 @@ Devise Invitable)
 
 1. gem "devise"; gem "devise_invitable", "~> 2.0.0". (I added them before on 9 step)
 2. ./run bundle:install. (I did it before on 10 step)
-3. rails g devise:install
+3. ./run rails g devise:install
 4. Open up config/environments/development.rb; config.action_mailer.default_url_options = { host: 'localhost', port: 8000 }
 5. Open up app/views/layouts/application.html.erb and add:
 <% if notice %>
@@ -37,7 +37,7 @@ Devise Invitable)
 <% end %>
 (right above  <%= yield %>)
 
------
+-
 
 Do you have some problems with devise flash massges?
 Rails 7 devise flash messages not being shown?
@@ -46,10 +46,25 @@ Add :turbo_stream as a navigational format. This line goes in config/initializer
 
 config.navigational_formats = ['*/*', :html, :turbo_stream]
 
------
+-
 
 6. ./run rails g devise:views
 7. ./run rails generate devise User
-8. 
-9. 
+8. ./run rails db:migrate
+9. ./run rails generate devise_invitable:install
 10. 
+11.
+12.
+
+-----
+
+Git init (SSH key must be in your the system and on GitHub account)
+
+1. git init -b main or git init
+2. git add .
+3. git commit -m "init commit"
+4. git remote rm origin
+5. git remote add origin git@github.com:MarkOdinSon/navitage_app.git
+6. git push -u origin main
+
+-----
