@@ -33,6 +33,7 @@
     <% end %>
     <!--Devise flash massages ending-->
 
+    <!--Devise logins starting-->
     <% if current_user %>
       <p class="text-right">
         Hi, <%= current_user.email %>
@@ -49,6 +50,8 @@
       <%= button_to "Sing up", new_user_registration_path, method: :get, class: "btn btn-outline-primary" %>
     </p>
     <% end %>
+
+    <!--Devise logins ending-->
 
     <main class="max-w-screen-lg mx-auto mb-auto">
       <%= yield %>
