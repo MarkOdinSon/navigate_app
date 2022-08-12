@@ -1,0 +1,17 @@
+<h1 class="text-4xl font-medium"><%= t "devise.invitations.new.header" %></h1>
+<p class="text-slate-500">Hi, we are glad that you invite friends 👋</p>
+<%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <% resource.class.invite_key_fields.each do |field| -%>
+    <div class="field">
+      <%= f.label field %><br />
+      <%= f.text_field field, class: "w-full py-3 border border-slate-200 rounded-lg px-3 focus:outline-none focus:border-slate-500 hover:shadow", placeholder: "Enter email" %>
+    </div>
+  <% end -%>
+  <div class="actions">
+    <button class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
+      <%= f.submit t("devise.invitations.new.submit_button") %>
+    </button>
+  </div>
+<% end %>

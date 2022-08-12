@@ -53,7 +53,8 @@ config.navigational_formats = ['*/*', :html, :turbo_stream]
 8. ./run rails db:migrate
 9. ./run rails generate devise_invitable:install
 10. ./run rails generate devise_invitable User
-11. ./run rails db:migrate
+11. ./run rails generate devise_invitable:views
+12. ./run rails db:migrate
 
 -----
 
