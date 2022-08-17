@@ -1,3 +1,4 @@
+<div class="h-screen flex flex-col items-center justify-center">
 <h1 class="text-4xl font-medium"><%= t "devise.invitations.edit.header" %></h1>
 <p class="text-slate-500">Hi, we are glad to see you 👋</p>
 <%= form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f| %>
@@ -16,9 +17,10 @@
     </div>
   <% end %>
 
-  <div class="actions">
+  <div class="actions pt-2">
     <button class="w-full py-3 font-medium text-white bg-indigo-600 hover:bg-indigo-500 rounded-lg border-indigo-500 hover:shadow inline-flex space-x-2 items-center justify-center">
       <%= f.submit t("devise.invitations.edit.submit_button") %>
     </button>
   </div>
 <% end %>
+</div>
