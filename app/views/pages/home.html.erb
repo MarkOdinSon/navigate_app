@@ -1,1 +1,122 @@
 This is a main page
+
+Users
+
+There are 3 types of users:
+- Admin
+- Publisher
+- User
+
+Admin users can:
+- add/remove/edit other users.
+- add/remove/edit any area in the CMS
+
+Publisher users can:
+- add/edit any Post in the CMS
+
+User
+- the regular user doesn’t have access to CMS
+- user can access the website
+
+Each user should have a User ID per registration that will be used for Email topics when the user sends some questions (see description below)
+Sign Up flow
+
+Admin user creates a new user and sets user’s email address + user role (any of 3)
+After submitting the creation, the user should get an email with the invitation link.
+
+When a user clicks on the link, we navigate s/him to the Sign Up page with the form.
+Form fields are all required.
+First Name
+Last Name
+Company (dropdown with preset values from CMS)
+Create Password
+Confirm Password
+
+After login, all users are redirected to the Homepage of the website.
+
+Notifications
+There are 2 types of notifications:
+First-time users always see the first notification that leads them to the Onboarding Post page.
+If any new page was added, users will be notified. If any Post, Category, Sub-Category was edited - users will be notified. We should add a checkbox “Notify all users about this change”. By default, it should be checked. An editor will see a popup before saving that will result in notifying all the users about the change. We do this to avoid sending notifications if the editor fixed some typos, etc.
+Notification will be active unless the user hits it and checks the update.
+
+The notifications that the user has already checked should be shown in the notification drop down during the current session only. Unseen notifications shouldn’t be dependent on the session.
+
+
+Contactor button in the header
+This button is a simple “mailto” that will open an email program and allow the user to send an email.
+When the user opens the email program, we should prefill:
+- Topic: Should be the user ID
+
+User icon in the header
+
+Dropdown menu that will contain only one option: “Log out”
+
+
+User session
+Since the website will be used by the transport clerks, we should set a session time to 24 hours. After that, the user should be logged out.
+
+Search
+This is the main feature of the website.
+Probably we should use ES.
+The search should give users search hints on typing.
+Search areas: post titles, post body text, file names
+Search should give results by relevance
+
+Menu
+All categories should be shown in the menu. Admin users should be able to create new categories and arrange them in the menu.
+
+Recently visited
+The last 15 Post pages were opened by the user. The most recent page should be shown in the first place.
+
+Homepage
+Admin users should be able to select categories to be shown on the Homepage. They are the featured categories among others.
+
+Categories on the homepage can have 3 templates:
+- Category name + Images + subcategories + post pages lists (we show 5 posts from the sub-category + more link)
+- Category name + Sub-categories + posts
+- Category name + Posts
+
+Admin users can add any quantity of categories to the Homepage (1-max existing in DB)
+
+There should be a sorting option for the Categories on the Homepage.
+Sorting for inner items (subs and posts) should be the same as we have on Subs pages.
+
+Categories structure
+There are 3 types of categories:
+- Top category (level 1)
+- Category (level 2)
+- Sub-category (level 3)
+
+
+All category types must have their inner pages that can include:
+- Category name
+- Inner categories and or links to posts
+WYSIWYG:
+- Title
+- Description
+- Image
+
+
+
+Category page
+May contain:
+- images for subcategories
+- subcategories
+- posts
+
+Post page
+Should have WYSIWYG
+Should have an ability to enable/disable special blocks, like:
+- image or images
+- pdf files
+- FAQ block
+- buses lists
+
+PDF files can be previewed
+Link to PDF files can be copied and sent to TML customer (so it should be opened to the web without login)
+
+WYSIWYG is a single object, we can’t insert there a PDF or any other component.
+
+BUSES list: Should be a multi-select with routes.
+Also, bus routes block should have it’s own title and descrip
