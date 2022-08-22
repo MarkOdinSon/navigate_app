@@ -42,7 +42,9 @@
             <!-- Dropdown menu -->
             <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block" id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" style="position: absolute; inset: 0px auto auto 0px; margin: 0px; transform: translate(646px, 82px);">
               <div class="py-3 px-4">
-                <span class="block text-sm text-gray-900 dark:text-white">Some name, id: <%= current_user.id %></span>
+                <span class="block text-sm text-gray-900 dark:text-white">There must be user name</span>
+                <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">User id: <%= current_user.id %></span>
+                <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">Role: <%= current_user.role %></span>
                 <span class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400"><%= current_user.email %></span>
               </div>
               <ul class="py-1" aria-labelledby="user-menu-button">
@@ -116,7 +118,7 @@
     </div>
 
     <!--Devise flash massages starting-->
-    <div class="row bg-orange-300">
+    <div class="row bg-sky-500">
       <div class="col-md-12">
         <% flash.each do |name, message| %>
           <div class="alert">
