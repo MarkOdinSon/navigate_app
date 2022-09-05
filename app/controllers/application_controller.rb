@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    flash[:alert] = "Access denied, only admin can invite a new users."
+    flash[:alert] = "You don't have enough rights to access it."
     redirect_to(request.referrer || root_path)
   end
 end

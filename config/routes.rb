@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users, :controllers => {:invitations => "invitations"} do
-    post  "/users/invitation/create" => "invitations#create", :as => "invitation_create"
-  end
+  devise_for :users, :controllers => {:invitations => "invitations"}
 
   root to: "pages#home"
 
