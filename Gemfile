@@ -66,6 +66,8 @@ group :development do
 
   gem "devise_invitable", "~> 2.0.0"
 
+  gem "pundit", "~> 2.2.0"
+
   # there will be my own gem ending
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
