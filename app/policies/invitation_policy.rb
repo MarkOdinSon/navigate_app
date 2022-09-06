@@ -6,7 +6,7 @@ class InvitationPolicy < ApplicationPolicy
     # end
   end
 
-  def can_create_invitation?
+  def create?
     user.admin?
   end
 end

@@ -51,7 +51,7 @@
                 <li>
                   <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
                 </li>
-                <% if policy(:invitation).can_create_invitation? %>
+                <% if policy(:invitation).create? %>
                   <li>
                     <%= link_to "Invite friends", new_user_invitation_path, class: 'block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'%>
                   </li>
