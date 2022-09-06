@@ -1,4 +1,4 @@
-My study app to learn backend and frontend RoR.
+My study app to learn backend and frontend RoR. Powered by Docker.
 -----
 Run the following algorithm to deploy this project on your local machine.
 Installation algorithm(steps):
