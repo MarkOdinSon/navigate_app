@@ -1,6 +1,4 @@
 My study app to learn backend and frontend RoR.
-Intranet is a Wiki-like platform with restricted access.
-It consists of a CMS and the main website.
 -----
 Run the following algorithm to deploy this project on your local machine.
 Installation algorithm(steps):
