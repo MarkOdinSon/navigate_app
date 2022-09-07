@@ -1,0 +1,55 @@
+<% if @posts != [] %>
+  <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+    <thead>
+    <tr>
+      <th scope="col" class="py-3 px-6">
+        ID
+      </th>
+      <th scope="col" class="py-3 px-6">
+        Owner
+      </th>
+      <th scope="col" class="py-3 px-6">
+        Title
+      </th>
+      <th scope="col" class="py-3 px-6">
+        <span class="sr-only">Show</span>
+      </th>
+      <th scope="col" class="py-3 px-6">
+        <span class="sr-only">Edit</span>
+      </th>
+      <th scope="col" class="py-3 px-6">
+        <span class="sr-only">Remove</span>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+      <% @posts.each do |p| %>
+      <tr class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
+        <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+          <%= p.id %>
+        </th>
+        <td class="py-4 px-6">
+        <%= p.owner %>
+        </td>
+        <td class="py-4 px-6">
+        <%= p.title %>
+        </td>
+        <td class="py-4 px-6 text-right">
+          <a href="/post/<%= p.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Show</a>
+        </td>
+        <td class="py-4 px-6 text-right">
+          <a href="/post/edit/<%= p.id %>" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+        </td>
+        <td class="py-4 px-6 text-right">
+          <%= button_to "Remove", "postRequest/post/remove/#{p.id}", method: :delete, class: "block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white" %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+  </div>
+<% else %>
+  There are no posts in DB
+<% end %>
