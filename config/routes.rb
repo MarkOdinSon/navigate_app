@@ -8,14 +8,14 @@ Rails.application.routes.draw do
 
   # routes for posts starting
 
-  get "/posts", to: "post#show_all_posts" # by default filtered by date of upload
-  get "/post/:id", to: "post#show_selected_post"
-  get "/post/new", to: "post#show_create_post"
-  get "/post/edit/:id", to: "post#show_edit_post"
+  get "/posts", to: "post#list"
+  get "/posts/:id", to: "post#show"
+  get "/post/new", to: "post#new"
+  get "/posts/edit/:id", to: "post#edit"
 
-  post "postRequest/post/create/", to: "post#do_create_post"
-  post "postRequest/post/save_changes/:id", to: "post#do_edit_post"
-  delete "postRequest/post/remove/:id", to: "post#do_remove_post"
+  post "/posts", to: "post#create"
+  patch "/posts/:id", to: "post#update"
+  delete "/posts/:id", to: "post#delete"
 
   # routes for posts ending
 

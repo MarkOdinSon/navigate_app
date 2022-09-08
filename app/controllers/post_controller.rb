@@ -1,53 +1,57 @@
 class PostController < ApplicationController
-
-  # prefix show - means that action has a html template. The action will be completed by returning the web page. Like a get request.
-  # prefix do - means that action has no html template. The action will be completed by performing a database operation and redirecting to another page. Like a post request
-
-  def show_all_posts # by default filtered by date of upload
+  def list # by default filtered by date of upload
     @title_of_page = 'Posts'
     @active_page = 'Posts'
 
     @posts = Post.all.order(:created_at)
   end
 
-  def show_selected_post
+  def show
     @title_of_page = 'Post #'
+    @active_page = 'Posts'
 
-
+    @post = Post.find(params[:id])
   end
 
-  def show_create_post
+  def new
     @title_of_page = 'Create a new post'
-
-
+    @active_page = 'Posts'
   end
 
-  def show_edit_post
+  def edit
     @title_of_page = 'Edition of the post #'
+    @active_page = 'Posts'
 
-
+    @post = Post.find(params[:id])
   end
 
-  def do_create_post
-
-  end
-
-  def do_edit_post
-
-  end
-
-  def do_remove_post
-    if Post.find(params[:id]).delete
-      flash.notice = "The post has been removed successfully."
+  def create
+    if Post.create(owner: current_user.id, title: params[:post][:title], body: params[:post][:body]).save
+      flash.notice = "The post has been created successfully."
+      id = Post.where(owner: current_user.id).last.id
+      redirect_to "/posts/#{id}"
     else
-      flash.alert = "The post has not been removed. Something go wrong"
+      flash.alert = "The post has not been created. Something go wrong."
+      redirect_to "/posts/"
     end
-    redirect_to request.referrer
   end
 
-  private
+  def update
+    if Post.find(params[:id]).update(title: params[:post][:title], body: params[:post][:body])
+      flash.notice = "The post has been updated successfully."
+      redirect_to "/posts/#{params[:id]}"
+    else
+      flash.alert = "The post has not been updated. Something go wrong."
+      redirect_to "/posts/"
+    end
+  end
 
-  def posts_params
-    params.permit(:title, :body, :owner)
+  def delete
+    if Post.find(params[:id]).delete
+      flash.notice = "The post has been deleted successfully."
+    else
+      flash.alert = "The post has not been deleted. Something go wrong."
+    end
+    redirect_to "/posts/"
   end
 end

@@ -1,0 +1,17 @@
+ID: <%= @post.id %><br>
+Owner: <%= current_user.email %>
+<%= form_with(model: @post, url: "/posts/#{@post.id}", method: "patch") do |form| %>
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, required: true %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :body %>
+    <%= form.text_area :body %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
