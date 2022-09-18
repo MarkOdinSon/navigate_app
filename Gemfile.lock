@@ -254,7 +254,7 @@ DEPENDENCIES
   debug
   devise
   devise_invitable (~> 2.0.0)
-  image_processing (~> 1.2)
+  image_processing
   jbuilder
   jsbundling-rails
   pg (~> 1.1)

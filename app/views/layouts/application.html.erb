@@ -10,6 +10,7 @@
     <meta name="description" content="A production ready example Rails app that's using Docker and Docker Compose.">
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
     <!--for divise flash massages js starting-->
@@ -149,11 +150,11 @@
 
     <!--Devise flash massages ending-->
 
-    <!--For burger dropdown Tailwind CSS and Flowbite-->
-    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
-    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
+        <!--For burger dropdown Tailwind CSS and Flowbite-->
+        <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+        <script type="text/javascript" src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
 
-    <main class="max-w-[90%] mx-auto mb-auto">
+    <main class="max-w-[90%] mx-auto mb-auto pt-2">
       <%= yield %>
     </main>
 
