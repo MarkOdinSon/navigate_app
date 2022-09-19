@@ -52,6 +52,8 @@ gem "pundit", "~> 2.2.0"
 
 gem "image_processing"
 
+gem "mini_magick"
+
 # there will be my own gem ending
 
 group :development, :test do

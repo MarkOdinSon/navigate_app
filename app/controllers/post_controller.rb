@@ -1,57 +1,53 @@
 class PostController < ApplicationController
-  def list # by default filtered by date of upload
-    @title_of_page = 'Posts'
-    @active_page = 'Posts'
+  before_action :set_post, only: %i[ show edit update destroy ]
 
-    @posts = Post.all.order(:created_at)
+  def index
+    @title_of_page = 'All the Posts'
+    @posts = Post.order(created_at: :desc)
   end
 
   def show
-    @title_of_page = 'Post #'
-    @active_page = 'Posts'
-
-    @post = Post.find(params[:id])
+    @title_of_page = 'Show the post'
   end
 
   def new
     @title_of_page = 'Create a new post'
-    @active_page = 'Posts'
+    @post = Post.new
   end
 
   def edit
-    @title_of_page = 'Edition of the post #'
-    @active_page = 'Posts'
-
-    @post = Post.find(params[:id])
+    @title_of_page = 'Editing the post'
   end
 
   def create
-    if Post.create(owner: current_user.id, title: params[:post][:title], body: params[:post][:body]).save
-      flash.notice = "The post has been created successfully."
-      id = Post.where(owner: current_user.id).last.id
-      redirect_to "/posts/#{id}"
+    @post = Post.create(owner: current_user.id, title: params[:post][:title], body: params[:post][:body])
+    if @post.save
+      redirect_to @post, notice: "Post was successfully created."
     else
-      flash.alert = "The post has not been created. Something go wrong."
-      redirect_to "/posts/"
+      render :new, status: :unprocessable_entity
     end
   end
 
   def update
-    if Post.find(params[:id]).update(title: params[:post][:title], body: params[:post][:body])
-      flash.notice = "The post has been updated successfully."
-      redirect_to "/posts/#{params[:id]}"
+    if @post.update(post_params)
+      redirect_to @post, notice: "Post was successfully updated."
     else
-      flash.alert = "The post has not been updated. Something go wrong."
-      redirect_to "/posts/"
+      render :edit, status: :unprocessable_entity
     end
   end
 
-  def delete
-    if Post.find(params[:id]).delete
-      flash.notice = "The post has been deleted successfully."
-    else
-      flash.alert = "The post has not been deleted. Something go wrong."
-    end
-    redirect_to "/posts/"
+  def destroy
+    @post.destroy
+    redirect_to post_url, alert: "Post was successfully destroyed."
+  end
+
+  private
+
+  def set_post
+    @post = Post.find(params[:id])
+  end
+
+  def post_params
+    params.require(:post).permit(:title, :body)
   end
 end
