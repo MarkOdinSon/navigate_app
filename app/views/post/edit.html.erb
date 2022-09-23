@@ -1,0 +1,7 @@
+<h1>Editing Post</h1>
+ID: <%= @post.id %><br>
+Owner: <%= current_user.email %>
+
+<%= render 'post_form', post: @post, this_url: "/post/#{@post.id}" %>
+<%= link_to 'Show', @post %> |
+<%= link_to "Back", :back %>

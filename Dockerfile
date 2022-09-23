@@ -41,6 +41,9 @@ CMD ["bash"]
 FROM ruby:3.1.2-slim-bullseye AS app
 LABEL maintainer="Nick Janetakis <nick.janetakis@gmail.com>"
 
+RUN apt-get update && apt-get install -y \
+    imagemagick
+
 WORKDIR /app
 
 RUN apt-get update \

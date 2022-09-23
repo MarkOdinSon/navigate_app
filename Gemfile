@@ -39,11 +39,22 @@ gem "redis", "~> 4.0"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
-# gem "image_processing", "~> 1.2"
-
 # Execute jobs in the background [https://github.com/mperham/sidekiq]
 gem "sidekiq", "~> 6.5"
+
+# there will be my own gem starting
+
+gem "devise"
+
+gem "devise_invitable", "~> 2.0.0"
+
+gem "pundit", "~> 2.2.0"
+
+gem "image_processing"
+
+gem "mini_magick"
+
+# there will be my own gem ending
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -59,16 +70,6 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   gem "rack-mini-profiler"
-
-  # there will be my own gem starting
-
-  gem "devise"
-
-  gem "devise_invitable", "~> 2.0.0"
-
-  gem "pundit", "~> 2.2.0"
-
-  # there will be my own gem ending
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
